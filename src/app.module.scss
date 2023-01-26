@@ -1,0 +1,505 @@
+@import 'sass';
+
+.App {
+	width: 100vw;
+	height: 100%;
+	min-height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+
+	.Background {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center 0;
+		z-index: -1;
+		transition: all 1s ease-in;
+		opacity: 0;
+	}
+
+	.Current {
+		opacity: 1;
+	}
+
+	nav {
+		position: fixed;
+		height: 150px;
+		width: 5%;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		opacity: 0.7;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		z-index: 10;
+
+		.Circle {
+			height: 15px;
+			width: 15px;
+			border-radius: 50%;
+			border: 1px solid white;
+			cursor: pointer;
+			transition: all 0.5s linear;
+		}
+
+		.Active {
+			background-color: white;
+		}
+
+		@media screen and (max-width: $breakpoint-tablet) {
+			width: 8%;
+		}
+	}
+
+	.Container {
+		position: absolute;
+		top: 0;
+		scroll-snap-type: y mandatory;
+		height: 100%;
+		overflow-y: scroll;
+		overflow-x: hidden;
+
+		section {
+			height: 100%;
+			width: 100vw;
+			scroll-snap-align: center;
+		}
+
+		.Top {
+			position: relative;
+			background: rgba($color: #3c3c3c, $alpha: 0.4);
+			@include flex-center;
+			.LogoLarge {
+				// border-radius: 5px;
+				height: 300px;
+				box-shadow: 0 0 10px 10px rgba($color: $color-box-shadow, $alpha: 0.7);
+				background-color: rgba($color: #ffffff, $alpha: 1);
+				@media screen and (max-width: $breakpoint-tablet) {
+					height: 250px;
+				}
+				@media screen and (max-height: 600px) {
+					height: 200px;
+				}
+			}
+			.Scroll {
+				position: absolute;
+				bottom: 40px;
+				color: white;
+				opacity: 0.8;
+				cursor: pointer;
+				@include flex-center;
+				flex-direction: column;
+
+				@media screen and (max-width: $breakpoint-mobile) {
+					bottom: 4%;
+				}
+				@media screen and (max-height: 520px) {
+					display: none;
+				}
+
+				.Arrow {
+					font-size: 40px;
+					@keyframes pulse {
+						from {
+							opacity: 0.7;
+						}
+						50% {
+							opacity: 1;
+						}
+						to {
+							opacity: 0.7;
+						}
+					}
+					animation: pulse 2s infinite;
+				}
+				p {
+					margin-top: 10px;
+					font-size: 12px;
+					text-transform: uppercase;
+				}
+				.Click {
+					@media screen and (max-width: $breakpoint-mobile) {
+						display: none;
+					}
+				}
+				.Tap {
+					display: none;
+					@media screen and (max-width: $breakpoint-mobile) {
+						display: block;
+					}
+				}
+			}
+		}
+		// ---------------------------------SECTION 2------------------------------->
+		.Content {
+			background: rgba($color: #3c3c3c, $alpha: 0.4);
+			position: relative;
+			.ProjectsDisplay {
+				position: absolute;
+				left: 50%;
+				top: 45%;
+				transform: translate(-50%, -50%);
+				height: 80%;
+				width: 90%;
+				border-radius: 10px;
+				padding: 40px 50px 40px;
+				background: $color-background-main;
+				box-shadow: 0 0 10px 10px rgba($color: $color-box-shadow, $alpha: 0.7);
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: center;
+
+				@media screen and (max-width: $breakpoint-tablet) {
+					width: 85%;
+					box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
+				}
+
+				@media screen and (max-height: 550px) {
+					height: 90%;
+					top: 50%;
+				}
+
+				h2 {
+					margin: 0 auto 15px;
+					width: 90%;
+					font-size: 25px;
+					font-weight: 300;
+					text-align: center;
+					@media screen and (max-width: 1200px) {
+						font-size: 23px;
+					}
+					@media screen and (max-height: 900px) {
+						font-size: 18px;
+					}
+					@media screen and (max-width: $breakpoint-tablet) {
+						font-size: 18px;
+						width: 100%;
+					}
+					@media screen and (max-height: 830px) {
+						font-size: 16px;
+					}
+					@media screen and (max-height: 770px) {
+						font-size: 16px;
+					}
+					@media screen and (max-width: 650px) {
+						font-size: 15px;
+					}
+					@media screen and (max-width: $breakpoint-mobile) {
+						margin-bottom: 10px;
+					}
+					@media screen and (max-height: 700px) {
+						display: none;
+					}
+				}
+
+				.ProjectsFullScreen {
+					display: flex;
+					flex-direction: row;
+					width: 100%;
+					justify-content: space-evenly;
+					align-items: center;
+					position: relative;
+
+					@media screen and (max-width: 1000px) {
+						display: none;
+					}
+
+					.Project {
+						overflow: hidden;
+						margin: 0 10px;
+						width: 480px;
+						height: 480px;
+						border: 1px solid $color-border;
+						border-radius: 10px;
+						padding: 0 0 20px;
+						transition: all 0.5s ease;
+						cursor: pointer;
+						overflow-y: scroll;
+						-ms-overflow-style: none; // IE and Edge
+						scrollbar-width: none; // Firefox
+						&::-webkit-scrollbar {
+							display: none; // Chrome, Safari, Opera
+						}
+
+						&:hover {
+							border: 1px solid white;
+							box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
+						}
+
+						@media screen and (max-height: 900px) {
+							height: 450px;
+						}
+						@media screen and (max-width: 1800px) {
+							width: 440px;
+						}
+						@media screen and (max-width: 1600px) {
+							width: 380px;
+						}
+						@media screen and (max-width: 1400px) {
+							width: 320px;
+							height: 420px;
+						}
+						@media screen and (max-height: 770px) {
+							height: 380px;
+						}
+						@media screen and (max-height: 710px) {
+							height: 320px;
+						}
+						@media screen and (max-height: 650px) {
+							height: 300px;
+						}
+						@media screen and (max-height: 570px) {
+							height: 260px;
+						}
+						@media screen and (max-width: 1200px) {
+							width: 280px;
+						}
+
+						img {
+							width: 100%;
+							height: 69%;
+							@media screen and (max-width: 1800px) {
+								height: 293px;
+							}
+							@media screen and (max-width: 1600px) {
+								height: 253px;
+							}
+							@media screen and (max-width: 1400px) {
+								height: 213px;
+							}
+							@media screen and (max-width: 1200px) {
+								height: 187px;
+							}
+						}
+
+						h4 {
+							padding: 10px;
+							font-family: 'Aboreto';
+							font-size: 18px;
+							margin: 10px 0 0;
+							@media screen and (max-width: 1600px) {
+								font-size: 16px;
+							}
+						}
+
+						p {
+							width: 100%;
+							font-size: 16px;
+							padding: 10px;
+							font-weight: 300;
+							line-height: 20px;
+							height: 90px;
+							overflow-y: scroll;
+							-ms-overflow-style: none; // IE and Edge
+							scrollbar-width: none; // Firefox
+							&::-webkit-scrollbar {
+								display: none; // Chrome, Safari, Opera
+							}
+							@media screen and (max-width: 1200px) {
+								font-size: 14px;
+							}
+						}
+					}
+
+					.Arrows {
+						@include flex-center;
+						padding: 5px;
+						border: 1px solid $color-border;
+						border-radius: 50%;
+						font-size: 30px;
+						transition: all 0.1s linear;
+						display: none;
+						&:active {
+							border: 1px solid white;
+							box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
+						}
+						@media screen and (max-width: 1000px) {
+							display: flex;
+						}
+						@media screen and (max-width: $breakpoint-tablet) {
+							font-size: 15px;
+						}
+						@media screen and (max-width: $breakpoint-mobile) {
+							font-size: 10px;
+						}
+					}
+				}
+				.ProjectsSmallScreen {
+					@media screen and (min-width: 1000px) {
+						display: none;
+					}
+				}
+				.SeeAll {
+					margin: 25px 0 0;
+					// margin-top: 20px;
+					width: 100%;
+					// margin: 30px auto;
+					text-align: center;
+					font-weight: 500;
+					letter-spacing: 0.8pt;
+
+					@include flex-center;
+
+					@media screen and (max-height: 770px) {
+						margin-top: 10px;
+					}
+
+					.ProjectsButton {
+						width: fit-content;
+						border: 1px solid $color-border;
+						padding: 10px 20px;
+						border-radius: 10px;
+						position: relative;
+						cursor: pointer;
+
+						z-index: 1;
+						font-size: 18px;
+						font-weight: 400;
+						letter-spacing: 1pt;
+						transition: all 0.5s ease;
+						@include flex-center;
+
+						p {
+							font-family: 'Aboreto';
+							@media screen and (max-width: $breakpoint-mobile) {
+								font-size: 15px;
+							}
+							@media screen and (max-height: 770px) {
+								font-size: 15px;
+							}
+							@media screen and (max-width: 380px) {
+								font-size: 12px;
+							}
+						}
+
+						@media screen and (max-width: $breakpoint-mobile) {
+							width: 250px;
+						}
+
+						&:hover {
+							border: 1px solid white;
+							box-shadow: 0 0 3px 3px rgba($color: #b5b5b5, $alpha: 0.7);
+						}
+					}
+				}
+
+				.LogoSmall {
+					position: absolute;
+					bottom: 7%;
+					right: 6%;
+					height: 30px;
+					@media screen and (max-width: 1000px) {
+						display: none;
+					}
+				}
+			}
+			.Scroll {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				bottom: 4%;
+				color: white;
+				opacity: 0.8;
+				cursor: pointer;
+				@include flex-center;
+				flex-direction: column;
+
+				@media screen and (max-height: 700px) {
+					bottom: 2%;
+				}
+				@media screen and (max-height: 550px) {
+					display: none;
+				}
+
+				.Arrow {
+					font-size: 40px;
+					@keyframes pulse {
+						from {
+							opacity: 0.7;
+						}
+						50% {
+							opacity: 1;
+						}
+						to {
+							opacity: 0.7;
+						}
+					}
+					animation: pulse 2s infinite;
+				}
+				p {
+					margin-top: 10px;
+					font-size: 12px;
+					text-transform: uppercase;
+				}
+			}
+		}
+		// ---------------------------------SECTION 3------------------------------->
+		.Contact {
+			background: rgba($color: #3c3c3c, $alpha: 0.4);
+			@include flex-center;
+
+			.Card {
+				border-radius: 10px;
+				padding: 40px 50px 40px;
+				display: flex;
+				flex-direction: column;
+				border: none;
+				box-shadow: 0 0 10px 10px rgba($color: $color-box-shadow, $alpha: 0.7);
+				background: $color-background-main;
+				letter-spacing: 1pt;
+
+				@media screen and (max-width: $breakpoint-tablet) {
+					padding: 20px 30px 20px;
+					box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
+				}
+
+				h2 {
+					font-family: 'Aboreto';
+					letter-spacing: normal;
+					white-space: nowrap;
+					font-size: 35px;
+					font-weight: 300;
+					margin: 10px auto;
+					text-shadow: 1px 1px 2px rgb(165, 157, 157);
+					@media screen and (max-width: $breakpoint-tablet) {
+						font-size: 25px;
+					}
+				}
+				h4 {
+					color: #757575;
+					font-family: 'Aboreto';
+					font-size: 20px;
+					font-weight: 100;
+					margin: 0 0 40px;
+					@media screen and (max-width: $breakpoint-tablet) {
+						font-size: 15px;
+					}
+				}
+				p {
+					text-align: center;
+					font-family: 'Aboreto';
+					font-size: 25px;
+					font-weight: 100;
+					color: #1717ff;
+					margin: 5px auto;
+					text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9;
+					@media screen and (max-width: $breakpoint-tablet) {
+						font-size: 20px;
+					}
+				}
+				.Icons {
+					width: 100%;
+					display: flex;
+					justify-content: space-evenly;
+					margin: 25px 0 5px;
+				}
+			}
+		}
+	}
+}

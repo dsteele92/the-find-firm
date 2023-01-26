@@ -1,0 +1,146 @@
+.SpinButton {
+	height: 60px;
+	width: 60px;
+	position: relative;
+	background: #ffffff;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	margin: 0 10px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 3px solid #fff;
+	z-index: 1;
+
+	transition: all 0.2s ease-in-out;
+
+	.Icon {
+		color: black;
+		transition: 0.5s;
+		z-index: 2;
+	}
+
+	&:hover {
+		.Icon {
+			color: white;
+			transform: rotateY(360deg);
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 100%;
+		left: 0;
+		background: #1717ff;
+		transition: 0.5s;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		top: 0;
+	}
+}
+
+.SquareFill {
+	height: 30px;
+	width: 30px;
+	position: relative;
+	background: #ffffff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 20px;
+	margin: 0 10px;
+	border-radius: 10px;
+	overflow: hidden;
+	border: 2px solid #fff;
+	z-index: 1;
+	@include flex-center;
+	transition: all 0.2s ease-in-out;
+
+	.Icon {
+		color: black;
+		transition: 0.5s;
+		z-index: 3;
+	}
+
+	&:hover {
+		.Icon {
+			color: white;
+			transform: rotateY(360deg);
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 100%;
+		left: 0;
+		background: #1717ff;
+		transition: 0.5s;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		top: 0;
+	}
+}
+// height: 30px;
+// width: 30px;
+// position: relative;
+// background: #ffffff;
+// text-align: center;
+// line-height: 30px;
+// font-size: 20px;
+// margin: 0 10px;
+// border-radius: 10px;
+// overflow: hidden;
+// border: 2px solid #fff;
+// z-index: 1;
+.WaveFill {
+	width: fit-content;
+	border: 1px solid black;
+	padding: 10px 20px;
+	border-radius: 10px;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	background: transparent;
+	background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
+	background-position: 0 -100%;
+	background-repeat: repeat-x;
+	z-index: 1;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 1pt;
+	transition: all 2s cubic-bezier(0.215, 0.8, 0.355, 1);
+	@include flex-center;
+
+	p {
+		font-family: 'Aboreto';
+	}
+
+	&:hover {
+		color: white;
+		background-position: center;
+		// opacity: 0.9;
+		// box-shadow: 0 0 2px 2px rgba($color: $color-box-shadow, $alpha: 0.7);
+	}
+
+	// &::before {
+	// 	content: '';
+	// 	position: absolute;
+	// 	height: 100%;
+	// 	width: 300%;
+	// 	transform: translate(0, 100%);
+	// 	// top: 90%;
+	// 	left: 0;
+	// 	background: #1717ff;
+	// 	transition: 0.5s;
+	// 	z-index: -1;
+	// }
+}
