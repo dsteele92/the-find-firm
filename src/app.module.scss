@@ -77,7 +77,7 @@
 			.LogoLarge {
 				// border-radius: 5px;
 				height: 300px;
-				box-shadow: 0 0 10px 10px rgba($color: $color-box-shadow, $alpha: 0.7);
+				box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
 				background-color: rgba($color: #ffffff, $alpha: 1);
 				@media screen and (max-width: $breakpoint-tablet) {
 					height: 250px;
@@ -149,7 +149,7 @@
 				border-radius: 10px;
 				padding: 40px 50px 40px;
 				background: $color-background-main;
-				box-shadow: 0 0 10px 10px rgba($color: $color-box-shadow, $alpha: 0.7);
+				box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;
@@ -450,7 +450,7 @@
 				display: flex;
 				flex-direction: column;
 				border: none;
-				box-shadow: 0 0 10px 10px rgba($color: $color-box-shadow, $alpha: 0.7);
+				box-shadow: 0 0 5px 5px rgba($color: $color-box-shadow, $alpha: 0.7);
 				background: $color-background-main;
 				letter-spacing: 1pt;
 
